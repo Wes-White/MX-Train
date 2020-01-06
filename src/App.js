@@ -61,7 +61,7 @@ function Player({ player, index, removePlayer }) {
           <Button
             color="danger"
             onClick={() => {
-              setScore(score - 1);
+              setScore(score - 5);
             }}
           >
             Minus 5
