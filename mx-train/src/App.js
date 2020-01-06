@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, ButtonGroup } from "reactstrap";
+import { Button, ButtonGroup, Form, Input } from "reactstrap";
 import "./App.css";
 
 function Player({ player, index, removePlayer }) {
@@ -91,27 +91,22 @@ function PlayerForm({ addPlayer }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
+    <Form onSubmit={handleSubmit}>
+      <Input
         type="text"
         className="input"
         value={value}
         onChange={e => setValue(e.target.value)}
       />
-      <button onClick={handleSubmit}>Add new user</button>
-    </form>
+      <Button className="add-player" color="success" onClick={handleSubmit}>
+        Add New Player
+      </Button>
+    </Form>
   );
 }
 
 function App() {
-  const [players, setPlayers] = useState([
-    {
-      text: "Wesley"
-    },
-    {
-      text: "Courtney"
-    }
-  ]);
+  const [players, setPlayers] = useState([]);
 
   const addPlayer = text => {
     const newPlayers = [...players, { text }];
